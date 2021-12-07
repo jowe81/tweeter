@@ -1,0 +1,25 @@
+nav {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  height:120px;  
+  color: #FFFFFF;
+  padding: 1.5em;
+  font-size: xx-large;
+  background-color: #4056a1;
+}
+
+.brand {
+  font-family: 'Bungee', sans-serif;
+}
+
+.new-tweet-link {
+  text-align:center;
+  font-size:25px;
+}
+
+.double-arrow {
+  color:red;
+}
