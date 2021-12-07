@@ -1,0 +1,12 @@
+header {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position:absolute;
+  width: 100%;
+  text-align: center;
+  height:400px;
+  background-color: rgb(228, 186, 109);
+  background-image: url("/images/dark-brick-wall.png");
+}

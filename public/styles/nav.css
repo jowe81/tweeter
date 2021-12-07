@@ -4,11 +4,15 @@ nav {
   justify-content: space-between;
   align-items: center;
 
+  position:absolute;
+  z-index: 1;
+
   height:120px;  
   color: #FFFFFF;
   padding: 1.5em;
   font-size: xx-large;
   background-color: #4056a1;
+  width:100%;
 }
 
 .brand {
