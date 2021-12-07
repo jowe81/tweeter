@@ -1,24 +1,29 @@
+/* Sits between .header-background and the header */
 nav {
+  /* Flex */
   display:flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
+  /* Position */
   position:absolute;
-  z-index: 1;
-
+  z-index: 2;
+  /* Size */
+  width:100%;
   height:120px;  
+  /* Styling */
   color: #FFFFFF;
   padding: 1.5em;
   font-size: xx-large;
   background-color: #4056a1;
-  width:100%;
 }
 
+/* TWEETER on the left */
 .brand {
   font-family: 'Bungee', sans-serif;
 }
 
+/* The link on the right */
 .new-tweet-link {
   text-align:center;
   font-size:25px;

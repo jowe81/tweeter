@@ -1,12 +1,32 @@
+/* Top-most element: sits above the nav and .header-background */
 header {
   display:flex;
   flex-direction: column;
   justify-content: center;
 
   position:absolute;
+  z-index:3;
   width: 100%;
   text-align: center;
   height:400px;
+}
+
+/* Sits on top of body/main, between nav and header */
+.header-background {
+  position:absolute;
+  z-index:1;
+  width:100%;
+  height:400px;
   background-color: rgb(228, 186, 109);
   background-image: url("/images/dark-brick-wall.png");
+}
+
+/* The image */
+.avatar {
+  margin-top:20px;
+  width:200px;
+}
+
+.name {
+  padding:0px; margin:0px;
 }
