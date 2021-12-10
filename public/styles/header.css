@@ -17,7 +17,7 @@ body > header {
   z-index:1;
   width:100%;
   height:400px;
-  background-color: rgb(228, 186, 109);
+  background-color: var(--orange);
   background-image: url("/images/dark-brick-wall.png");
 }
 

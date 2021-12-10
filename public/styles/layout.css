@@ -14,11 +14,17 @@ html {
  * Global layout stuff
  */
 
+ /* Define some variables for easy changes of the look */
 :root {
-  --blue: #4056a1;  /* The tweeter-blue */
-  --white: #f4f1ec; /* Whiteish background */
-  --gray: #545149;  /* Dark gray (font) */
+  --blue: #4056a1;         /* The tweeter-blue */
+  --light-blue: #4056a166; /* Same, reduced opacity */
+  --white: #f4f1ec;        /* Whiteish background */
+  --gray: #545149;         /* Dark gray (font) */
   --red: #df0202;
+  --grayout: #c2c2c2;      /* Grayed-out text */
+  --orange: #dfab00;
+  
+  --line-width: 4px;         /* Borders and shadows */
 }
 
 body {
