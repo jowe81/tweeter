@@ -14,9 +14,15 @@ html {
  * Global layout stuff
  */
 
+:root {
+  --blue: #4056a1;  /* The tweeter-blue */
+  --white: #f4f1ec; /* Whiteish background */
+  --gray: #545149;  /* Dark gray (font) */
+}
+
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: var(--gray);
+  background-color: var(--white);
   font-size: 24px;  
   font-family: 'Source Sans Pro', sans-serif;
 }
