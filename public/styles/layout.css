@@ -18,6 +18,7 @@ html {
   --blue: #4056a1;  /* The tweeter-blue */
   --white: #f4f1ec; /* Whiteish background */
   --gray: #545149;  /* Dark gray (font) */
+  --red: #df0202;
 }
 
 body {

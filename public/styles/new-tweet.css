@@ -29,3 +29,8 @@
 .new-tweet .counter {
   float:right;
 }
+
+/* Apply this to the counter when it turns negative */
+.red-text {
+  color: var(--red);
+}
