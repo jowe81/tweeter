@@ -1,0 +1,52 @@
+/* The container class for each displayed tweet */
+.tweet {
+  border: var(--line-width) solid var(--gray);  
+  margin:15px;
+}
+
+.tweet:hover {
+  box-shadow: var(--line-width) var(--line-width) var(--light-blue);
+}
+
+/* Tweet header */
+.tweet > header {
+  margin: 10px;
+  padding: 10px;  
+}
+
+/* The user handle on the right of the tweet */
+.tweet > header .user-handle {
+  float: right;
+  color: var(--grayout);
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+/* The main text of the tweet */
+.tweet > div {
+  padding: 20px;
+  margin: 10 px;
+  font-weight: bold;
+}
+
+/* Tweet footer */
+.tweet > footer {
+  border-top: var(--line-width) solid var(--gray);
+  padding: 10px;
+  margin: 10px;
+  font-size: 70%;
+}
+
+.tweet > footer > .action-icons {
+  float: right;
+}
+
+/* Space the action icons */
+.tweet > footer > .action-icons > i {
+  margin:0px 5px;
+  color: var(--blue);
+}
+
+.tweet > footer > .action-icons > i:hover {
+  color: var(--orange);
+}
