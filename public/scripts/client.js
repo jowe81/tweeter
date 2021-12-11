@@ -21,7 +21,7 @@ const getElapsedTime = (ts1, ts2) => {
   // - design conditionals to avoid having to deal with singular/plural :)
   let t;
   if (ms < 2 * MINUTE) {
-    t = "moment";
+    t = "moments";
   } else if (ms < 2 * HOUR) {
     t = `${Math.floor(ms / MINUTE)} minutes`;
   } else if (ms < 2 * DAY) {
@@ -72,18 +72,24 @@ const createTweetElement = (tweet) => {
   return article;
 };
 
+/* Sort tweets (newer ones first) */
 const sortTweets = (tweets) => {
   return tweets.sort((a, b) => a.created_at > b.created_at ? -1 : 1);
 };
 
 /* Render an array of tweets */
-const renderTweets = (tweets, targetSelector = "#tweets") => {
+const renderTweets = (tweets) => {
   sortTweets(tweets).forEach(tweet => {
-    $(targetSelector).append(createTweetElement(tweet));
+    $(TWEETS_CONTAINER_SELECTOR).append(createTweetElement(tweet));
   });
 };
 
-/* Load tweets via ajax and render them */
+//Empty tweets container
+const clearTweets = () => {
+  $(TWEETS_CONTAINER_SELECTOR).html('');
+}
+
+/* Load tweets via ajax and append them to the container */
 const loadTweets = () => {
   $.get('/tweets', (data) => renderTweets(data));
 };
@@ -97,9 +103,11 @@ $(document).ready(function() {
     if (text && text.length < MAX_TWEET_LENGTH) {
       const data = $(this).serialize();
       $.post("/tweets", data, (err, data) => {
+        //Success - reload tweets and clear the form
+        clearTweets();
         loadTweets();
         $(this).trigger("reset");
-      });  
+      });
     } else if (!text) {
       //Nothing entered or whitespace only
       alert("Please enter some text.");
