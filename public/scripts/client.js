@@ -79,7 +79,6 @@ const renderTweets = (tweets, targetSelector) => {
 };
 
 const loadTweets = (targetSelector) => {
-  console.log("LOADING TWETS");
   $.get('/tweets', (data) => renderTweets(data, targetSelector));
 };
 
@@ -87,14 +86,21 @@ $(document).ready(function() {
 
   $(".new-tweet form").submit(function(e) {
     e.preventDefault();
-    const data = $(this).serialize();
-    console.log(data);
-    $.post("/tweets", data, (err, data) => {
-      //After submission
-    });
+    const text = $(this).find('textarea').val().trim();
+    if (text && text.length < MAX_TWEET_LENGTH) {
+      const data = $(this).serialize();
+      $.post("/tweets", data, (err, data) => {
+        //After submission
+      });  
+    } else if (!text) {
+      //Nothing entered or whitespace only
+      alert("Please enter some text.");
+    } else {
+      //Too many characters
+      alert("Your tweet is too long.");
+    }
 
   });
-  
 
   loadTweets("#tweets");
 });
