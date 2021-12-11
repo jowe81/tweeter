@@ -42,23 +42,26 @@ const getElapsedTime = (ts1, ts2) => {
   //Milliseconds between timestamps
   const ms = Math.abs(ts1 - ts2);
 
-  //Decide on a unit
+  //Decide on a unit and generate string
+  // - design conditionals to avoid having to deal with singular/plural :)
   let t;
-  if (ms < MINUTE) {
+  if (ms < 2 * MINUTE) {
     t = "moment";
-  } else if (ms < HOUR) {
-    t = `${Math.floor(ms / MINUTE)} minute`;
-  } else if (ms < DAY) {
-    t = `${Math.floor(ms / HOUR)} hour`;
-  } else if (ms < WEEK) {
-    t = `${Math.floor(ms / DAY)} day`;
-  } else if (ms < MONTH) {
-    t = `${Math.floor(ms / DAY)} week`;
-  } else if (ms < YEAR) {
-    t = `${Math.floor(ms / DAY)} month`;
+  } else if (ms < 2 * HOUR) {
+    t = `${Math.floor(ms / MINUTE)} minutes`;
+  } else if (ms < 2 * DAY) {
+    t = `${Math.floor(ms / HOUR)} hours`;
+  } else if (ms < 2 * WEEK) {
+    t = `${Math.floor(ms / DAY)} days`;
+  } else if (ms < 2 * MONTH) {
+    t = `${Math.floor(ms / WEEK)} weeks`;
+  } else if (ms < 2 * YEAR) {
+    t = `${Math.floor(ms / MONTH)} months`;
+  } else {
+    t = `${Math.floor(ms / YEAR)} years`;
   }
 
-  return `${t}(s) ago`;
+  return `${t} ago`;
 };
 
 const createTweetElement = (tweet) => {
@@ -96,7 +99,20 @@ const renderTweets = (tweets, targetSelector) => {
   });
 };
 
+
 $(document).ready(function() {
+
+  $(".new-tweet form").submit(function(e) {
+    e.preventDefault();
+    const data = $(this).serialize();
+    console.log(data);
+    $.post("/tweets", data, (err, data) => {
+      //After submission
+    });
+
+  });
+  
+
   renderTweets(data, "#tweets");
 });
 
