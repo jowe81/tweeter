@@ -5,8 +5,9 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* Position */
-  position:absolute;
+  /* Position: fix at the top */
+  position:fixed;
+  top: 0;
   z-index: 2;
   /* Size */
   width:100%;
