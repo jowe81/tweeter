@@ -72,25 +72,33 @@ const createTweetElement = (tweet) => {
   return article;
 };
 
-const renderTweets = (tweets, targetSelector) => {
-  tweets.forEach(tweet => {
+const sortTweets = (tweets) => {
+  return tweets.sort((a, b) => a.created_at > b.created_at ? -1 : 1);
+};
+
+/* Render an array of tweets */
+const renderTweets = (tweets, targetSelector = "#tweets") => {
+  sortTweets(tweets).forEach(tweet => {
     $(targetSelector).append(createTweetElement(tweet));
   });
 };
 
-const loadTweets = (targetSelector) => {
-  $.get('/tweets', (data) => renderTweets(data, targetSelector));
+/* Load tweets via ajax and render them */
+const loadTweets = () => {
+  $.get('/tweets', (data) => renderTweets(data));
 };
 
 $(document).ready(function() {
 
   $(".new-tweet form").submit(function(e) {
     e.preventDefault();
-    const text = $(this).find('textarea').val().trim();
+    const textarea = $(this).find('textarea');
+    const text = textarea.val().trim();
     if (text && text.length < MAX_TWEET_LENGTH) {
       const data = $(this).serialize();
       $.post("/tweets", data, (err, data) => {
-        //After submission
+        loadTweets();
+        $(this).trigger("reset");
       });  
     } else if (!text) {
       //Nothing entered or whitespace only
@@ -102,7 +110,7 @@ $(document).ready(function() {
 
   });
 
-  loadTweets("#tweets");
+  loadTweets();
 });
 
 
