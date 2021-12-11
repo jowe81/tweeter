@@ -2,7 +2,7 @@ $(document).ready(() => {
 
   // unlike keypress, keyup fires AFTER the length of the text changed
   $("#tweet-text").keyup(function() {
-    const remainingChars = 140 - $(this).val().length;
+    const remainingChars = MAX_TWEET_LENGTH - $(this).val().length;
     //use relative DOM path to target the counter
     const counter = $(this).parent().find(".counter");
     //Turn text red on negative number
