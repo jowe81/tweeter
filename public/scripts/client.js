@@ -96,5 +96,9 @@ const renderTweets = (tweets, targetSelector) => {
   });
 };
 
-renderTweets(data);
+$(document).ready(function() {
+  renderTweets(data, "#tweets");
+});
+
+
 
