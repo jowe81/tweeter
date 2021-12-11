@@ -104,32 +104,44 @@ const loadTweets = () => {
   $.get('/tweets', (data) => renderTweets(data));
 };
 
-// JS Execution begins here
+//Validate new tweet, return false on success, or error message
+const validate = (textarea) => {
+  let result = false;
+  const text = textarea.val().trim();
+  if (!text) {
+    //No text or whitespace only
+    result = "Please enter some text.";
+  } else if (text.length > MAX_TWEET_LENGTH) {
+    //Too long!
+    result = `Your tweet is too long. No more than ${MAX_TWEET_LENGTH} characters, please.`;
+  }
+  return result;
+};
+
 $(document).ready(function() {
 
   //Handle attempt to submit form
   $(".new-tweet form").submit(function(e) {
     e.preventDefault();
-    hideError(); //In case there was error earlier
-    const textarea = $(this).find('textarea');
-    const text = textarea.val().trim();
-    if (text && text.length < MAX_TWEET_LENGTH) {
-      const data = $(this).serialize();
-      $.post("/tweets", data, (err, data) => {
-        //Success - reload tweets and clear the form
-        clearTweets();
-        loadTweets();
-        $(this).trigger("reset");
-      });
-    } else if (!text) {
-      //Nothing entered or whitespace only
-      displayError("Please enter some text.");
-    } else {
-      //Too many characters
-      displayError("Your tweet is too long.");
-    }
+    hideError().then(() => {
+      const error = validate($(this).find('textarea'));
+      if (!error) {
+        //Validation passed - submit new tweet
+        const data = $(this).serialize();
+        $.post("/tweets", data, (err, data) => {
+          //Success - reload tweets and clear the form
+          clearTweets();
+          loadTweets();
+          $(this).trigger("reset");
+        });
+      } else {
+        //Validation failed - display error
+        displayError(error);
+      }
+    });
   });
 
+  //Init
   loadTweets();
 });
 

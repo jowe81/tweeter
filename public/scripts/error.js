@@ -11,8 +11,13 @@ const displayError = (text, targetSelector = ERROR_CONTAINER_SELECTOR) => {
   $(ERROR_CONTAINER_SELECTOR).find('.slider').slideDown(ERROR_SLIDE_TIME);
 }
 
+//Slide the error out of view - returns promise that resolve when animation completes
 const hideError = (targetSelector = ERROR_CONTAINER_SELECTOR) => {
-  $(ERROR_CONTAINER_SELECTOR).find('.slider').slideUp(ERROR_SLIDE_TIME);
+  return new Promise((resolve, reject) => {
+    $(ERROR_CONTAINER_SELECTOR).find('.slider').slideUp(ERROR_SLIDE_TIME, () => {
+      resolve();
+    });
+  });
 };
 
 const initError = (targetSelector = ERROR_CONTAINER_SELECTOR) => {
