@@ -41,6 +41,10 @@ const getElapsedTime = (ts1, ts2) => {
 
 const createTweetElement = (tweet) => {
   const elapsedTimeStr = getElapsedTime(Date.now(), tweet.created_at);
+  //I wrote my own timeago-style function before getting to the instructions
+  //to use the timeago library. Can switch to the library simply by uncommenting
+  //the line below and commenting out the line above
+  //const elapsedTimeStr = timeago.format(tweet.created_at);
   const article = `
     <article class="tweet">
       <header>
