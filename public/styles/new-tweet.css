@@ -1,8 +1,6 @@
 /* The new-tweet section */
 .new-tweet {
-  width:90%;
-  margin:10px auto;  
-  font-weight: bold;
+  font-weight: bold;  
 }
 
 /* Textarea transparent, full width, with bottom-border */

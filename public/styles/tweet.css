@@ -1,7 +1,8 @@
 /* The container class for each displayed tweet */
 .tweet {
   border: var(--line-width) solid var(--gray);  
-  margin:15px;
+  margin-top:25px;
+  margin-bottom:25px;
 }
 
 .tweet:hover {

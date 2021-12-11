@@ -39,6 +39,14 @@ const getElapsedTime = (ts1, ts2) => {
   return `${t} ago`;
 };
 
+// Copied from LHL Compass, make string XSS safe
+// - seems a little clumsy...but is a quick fix.
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = (tweet) => {
   const elapsedTimeStr = getElapsedTime(Date.now(), tweet.created_at);
   //I wrote my own timeago-style function before getting to the instructions
@@ -57,7 +65,7 @@ const createTweetElement = (tweet) => {
         </div>
       </header>
       <div>
-        ${tweet.content.text}
+        ${escape(tweet.content.text)}
       </div>
       <footer>
         <span class="days-ago">${elapsedTimeStr}</span>
@@ -71,6 +79,8 @@ const createTweetElement = (tweet) => {
   `;
   return article;
 };
+
+
 
 /* Sort tweets (newer ones first) */
 const sortTweets = (tweets) => {
@@ -94,10 +104,13 @@ const loadTweets = () => {
   $.get('/tweets', (data) => renderTweets(data));
 };
 
+// JS Execution begins here
 $(document).ready(function() {
 
+  //Handle attempt to submit form
   $(".new-tweet form").submit(function(e) {
     e.preventDefault();
+    hideError(); //In case there was error earlier
     const textarea = $(this).find('textarea');
     const text = textarea.val().trim();
     if (text && text.length < MAX_TWEET_LENGTH) {
@@ -110,12 +123,11 @@ $(document).ready(function() {
       });
     } else if (!text) {
       //Nothing entered or whitespace only
-      alert("Please enter some text.");
+      displayError("Please enter some text.");
     } else {
       //Too many characters
-      alert("Your tweet is too long.");
+      displayError("Your tweet is too long.");
     }
-
   });
 
   loadTweets();

@@ -44,3 +44,10 @@ main {
   width:90%;  
   margin:0px auto;
 }
+
+/* Everything (the sections, errors) inside the main container */
+main > * {
+  margin:0px auto;
+  width:90%;  
+  max-width:900px;
+}

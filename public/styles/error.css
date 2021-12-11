@@ -1,0 +1,29 @@
+/* Class of the containing div (beneath #error-container) */
+#error-container {
+  margin-top:30px;
+  height: 110px;
+}
+
+.error-message {  
+  background-color: rgb(255, 184, 172);
+  border-radius: 5px;
+  color:red;
+  padding:15px;
+  
+}
+
+/* The error headline */
+.error-message h3 {
+  margin-top:5px;
+}
+
+/* The icon */
+.error-message i {
+  float:left;
+  margin-right:15px;
+}
+
+/* The error message text */
+.error-message span {
+  font-weight: bold;
+}
