@@ -50,3 +50,18 @@ main > * {
   width:90%;  
   max-width:900px;
 }
+
+/* Second toggle button (appears on scrolling down) */
+/*  -Gets positioned via javascript, depending on viewport dimensions */
+main > #scroll-toggle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 4;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  color:white;
+}
