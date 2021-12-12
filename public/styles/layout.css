@@ -65,3 +65,18 @@ main > #scroll-toggle-button {
   background-color: red;
   color:white;
 }
+
+/* Animation for the scroll-toggle-button: raise and lower the arror icon */
+@keyframes raise-arrow {
+  0% { padding-bottom: 0px; }
+  50% { padding-bottom: 5px; }
+  100% { padding-bottom: 0px; }
+}
+
+/* Animate the scroll-toggle-button on hover */
+main > #scroll-toggle-button:hover {
+  animation-name: raise-arrow;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  
+}
