@@ -1,3 +1,12 @@
+//Show or hide the new tweet / compose button
+const showComposeButton = (show) => {
+  if (show) {
+    $("nav .new-tweet-link").fadeIn();
+  } else {
+    $("nav .new-tweet-link").fadeOut();
+  }  
+}
+
 //Show or hide the scroll-toggle-button
 const showScrollToggleButton = (show) => {
   const scrollToggleButton = $("main > #scroll-toggle-button")[0];
@@ -81,10 +90,14 @@ $(document).ready(() => {
     });
   });
 
-  //User scrolls or resizes the window: show/position the scroll-toggle-button as needed
+  //User scrolls or resizes the window:
+  // - show/position the scroll-toggle-button as needed
+  // - show/hide the compose button at the top accordingly
   $(window).on('scroll resize', function() {
     const scrolledTo = $(window).scrollTop();
-    showScrollToggleButton(scrolledTo > 400);
+    const flipButtons = scrolledTo > 400;
+    showScrollToggleButton(flipButtons);
+    showComposeButton(!flipButtons);
   });
   
 
