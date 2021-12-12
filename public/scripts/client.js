@@ -120,6 +120,21 @@ const validate = (textarea) => {
 
 $(document).ready(function() {
 
+
+  //Slide the new tweet form up/down when compose button is clicked
+  $("nav .new-tweet-link").on('click', function() {
+    const newTweetSection = $("main .new-tweet")[0];
+    //Use clientHeight to determine current state (0 => form is slid up/hidden)
+    if (newTweetSection.clientHeight) {
+      $(newTweetSection).slideUp();
+    } else {
+      $(newTweetSection).slideDown(function() {
+        //Pre-focus textarea after the animation completes
+        $(this).find('form > #tweet-text').focus();
+      });
+    }
+  });
+
   //Handle attempt to submit form
   $(".new-tweet form").submit(function(e) {
     e.preventDefault();
@@ -141,8 +156,10 @@ $(document).ready(function() {
     });
   });
 
-  //Init
+  //Populate the page with tweets
   loadTweets();
+  //Hide the new tweet form by default
+  $(".new-tweet").slideUp(0);
 });
 
 
