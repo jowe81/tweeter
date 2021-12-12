@@ -1,3 +1,6 @@
+//Logic to display errors on form validation failure
+
+/* Create and display the error message in text */
 const displayError = (text, targetSelector = ERROR_CONTAINER_SELECTOR) => {
   const html = `
     <div class="error-message">
@@ -9,7 +12,7 @@ const displayError = (text, targetSelector = ERROR_CONTAINER_SELECTOR) => {
   console.log("ERROR");
   $(ERROR_CONTAINER_SELECTOR).find('.slider').html(html);
   $(ERROR_CONTAINER_SELECTOR).find('.slider').slideDown(ERROR_SLIDE_TIME);
-}
+};
 
 //Slide the error out of view - returns promise that resolve when animation completes
 const hideError = (targetSelector = ERROR_CONTAINER_SELECTOR) => {
@@ -23,9 +26,9 @@ const hideError = (targetSelector = ERROR_CONTAINER_SELECTOR) => {
 const initError = (targetSelector = ERROR_CONTAINER_SELECTOR) => {
   $(ERROR_CONTAINER_SELECTOR).html('<div class="slider"></div>');
   $(ERROR_CONTAINER_SELECTOR).find(".slider").slideUp(0);
-}
+};
 
 //Initialize
 $(document).ready(function() {
   initError();
-})
+});
