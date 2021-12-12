@@ -38,9 +38,8 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- /* Main section sits behind nav and header */
+ /* Main content container */
 main {
-  padding-top:400px;
   width:90%;  
   margin:0px auto;
 }
