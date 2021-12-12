@@ -20,16 +20,20 @@ nav {
 }
 
 /* TWEETER on the left */
-.brand {
+nav > .brand {
   font-family: 'Bungee', sans-serif;
 }
 
 /* The link on the right */
-.new-tweet-link {
+nav > .new-tweet-link {
   text-align:center;
   font-size:25px;
 }
 
-.double-arrow {
+nav > .new-tweet-link:hover {
+
+}
+
+nav > .new-tweet-link > .double-arrow {
   color:red;
 }
