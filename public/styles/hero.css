@@ -1,23 +1,23 @@
 /* The big header at the top of the page */
-body > header {
+.hero {
   display:flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   text-align: center;
-  height:400px;
+  height:350px;
   background-color: var(--orange);
   background-image: url("/images/dark-brick-wall.png");
 }
 
 /* The image */
-body > header .avatar {
-  margin-top:100px;
+.hero .avatar {
+  /*margin-top:100px;*/
   width:200px;
 }
 
 /* The name */
-body > header .name {
+.hero .name {
   padding:0px; margin:0px;
   color:var(--white)
 }
