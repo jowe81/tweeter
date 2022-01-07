@@ -1,26 +1,3 @@
-//Show or hide the new tweet / compose button
-const showComposeButton = (show) => {
-  if (show) {
-    $("nav .new-tweet-link").fadeIn();
-  } else {
-    $("nav .new-tweet-link").fadeOut();
-  }  
-}
-
-//Show or hide the scroll-toggle-button
-const showScrollToggleButton = (show) => {
-  const scrollToggleButton = $("main > #scroll-toggle-button")[0];
-  //Get browser viewport w/o address & bookmark bars, scrollbars, etc (actual document viewport)
-  const html = $("html")[0];
-  const viewPortHeight = html.clientHeight;
-  const viewPortWidth = html.clientWidth;
-  //Position the button relative to the bottom right of the viewport
-  $(scrollToggleButton).css('top',`${viewPortHeight - 150}px`);
-  $(scrollToggleButton).css('left',`${viewPortWidth - 150}px`);
-  //Show/hide
-  show ? $(scrollToggleButton).fadeIn() : $(scrollToggleButton).fadeOut();
-};
-
 //Is the new tweet section/form currently visible/slid down?
 const newTweetFormIsVisible = () => {
   const newTweetSection = $("main .new-tweet")[0];
@@ -90,15 +67,7 @@ $(document).ready(() => {
     });
   });
 
-  //User scrolls or resizes the window:
-  // - show/position the scroll-toggle-button as needed
-  // - show/hide the compose button at the top accordingly
-  $(window).on('scroll resize', function() {
-    const scrolledTo = $(window).scrollTop();
-    const flipButtons = scrolledTo > 400;
-    showScrollToggleButton(flipButtons);
-    showComposeButton(!flipButtons);
-  });
+  
   
 
   //Init

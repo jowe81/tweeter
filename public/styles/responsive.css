@@ -91,6 +91,7 @@
 
   main {
     margin: 20px;
+    margin-right:30px;
     flex-basis: 70%;
   }
 
