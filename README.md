@@ -22,6 +22,7 @@ Two breakpoints (three formats) have been implemented:
 * While typing, the remaining character count will be displayed to the user with its color changing when it turns negative
 * Upon submission, the new tweet will be checked for adequate length (non-empty, not longer than 140 characters) and an appropriate error message will display if the validation fails
 * Upon successful submission, the tweet list will reload
+* Tweet submission and tweet loading is implemented using AJAX
 * Two ideas for improvement:
   * instead of reloading the whole list, only the tweets that have been submitted since the last reload should be added
   * for performance and scalability reasons, there should be a limit to how many tweets are loaded by default (with more to be loaded when the user has scrolled to the bottom of the page)
