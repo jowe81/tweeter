@@ -1,5 +1,15 @@
+/* 
+  By following the compass instructions sequentially I ended up with essentially a desktop-first
+  (or, rather, tablet-first) approach.
+  Hence there the first breakpoint below caters to smaller screens (mobile), and the second
+  breakpoint accommodates larger screens.
+*/
 
-/* Mobile */
+/*
+  Mobile
+  As with the tablet view, the nav bar is integrated with the hero, and will scroll out of view.
+  Font sizes and line width are smaller.
+*/
 @media screen and (max-width:767px) {
   :root {    
     --line-width: 2px;         /* Borders and shadows */
@@ -60,10 +70,19 @@
     padding-top:2px;
     padding-bottom: 2px;
   }
+
+  .error-message {
+    font-size:70%;
+  }
 }
 
 
-/* Desktop */
+/* 
+  Desktop 
+  As initially stipulated in compass, and according to the screen cast provided,
+  the nav bar will remain fixed when scrolling down.
+  Also switch to a two column format: left column has the hero, right column has the tweets.
+*/
 @media screen and (min-width:1024px) {
 
   :root {    

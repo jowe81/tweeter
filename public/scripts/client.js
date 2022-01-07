@@ -54,7 +54,7 @@ const clearTweets = () => {
   $(TWEETS_CONTAINER_SELECTOR).html('');
 };
 
-/* Load tweets via ajax and append them to the container */
+// Load tweets via ajax and append them to the container
 const loadTweets = () => {
   $.get('/tweets', (data) => renderTweets(data));
 };
@@ -100,7 +100,6 @@ $(document).ready(function() {
   //Populate the page with tweets
   loadTweets();
 
-
   //User scrolls or resizes the window:
   // - show/position the scroll-toggle-button as needed
   // - show/hide the compose button at the top accordingly
@@ -114,9 +113,8 @@ $(document).ready(function() {
       showBrand(!flipButtons);
     } else {
       showBrand(true);
-    }    
+    }
   });
-
 
 });
 

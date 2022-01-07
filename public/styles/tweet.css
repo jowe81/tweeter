@@ -5,6 +5,7 @@
   margin-bottom:25px;
 }
 
+/* Add drop shadow on hover */
 .tweet:hover {
   box-shadow: var(--line-width) var(--line-width) var(--light-blue);
 }
@@ -38,6 +39,7 @@
   font-size: 70%;
 }
 
+/* Float the container with the action icons to the right */
 .tweet > footer > .action-icons {
   float: right;
 }
@@ -48,6 +50,7 @@
   color: var(--blue);
 }
 
+/* Color action items on hover */
 .tweet > footer > .action-icons > i:hover {
   color: var(--orange);
 }
