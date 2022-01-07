@@ -19,6 +19,16 @@ const validate = (textarea) => {
   return result;
 };
 
+//Update the remaining chars counter
+const updateCounter = () => {
+  const remainingChars = MAX_TWEET_LENGTH - $(".new-tweet #tweet-text").val().length;
+  const counter = $(".new-tweet .counter");
+  //Turn text red on negative number
+  remainingChars < 0 ? counter.addClass('red-text') : counter.removeClass('red-text');
+  //Update counter
+  counter.text(remainingChars);
+};
+
 $(document).ready(() => {
 
   //Click on compose button: slide the new tweet form up/down
@@ -51,13 +61,7 @@ $(document).ready(() => {
   //User is typing: update remaining character count
   // - unlike keypress, keyup fires AFTER the length of the text changed
   $("#tweet-text").on('keyup', function() {
-    const remainingChars = MAX_TWEET_LENGTH - $(this).val().length;
-    //use relative DOM path to target the counter
-    const counter = $(this).parent().find(".counter");
-    //Turn text red on negative number
-    remainingChars < 0 ? counter.addClass('red-text') : counter.removeClass('red-text');
-    //Update counter
-    counter.text(remainingChars);
+    updateCounter();
   });
   
   //User attempts to submit the form
@@ -72,7 +76,8 @@ $(document).ready(() => {
           //Success - reload tweets and clear the form
           clearTweets();
           loadTweets();
-          $(this).trigger("reset");
+          $(".new-tweet #tweet-text").val('');
+          updateCounter();
         });
       } else {
         //Validation failed - display error
@@ -80,9 +85,6 @@ $(document).ready(() => {
       }
     });
   });
-
-  
-  
 
   //Init
 
