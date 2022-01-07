@@ -5,6 +5,20 @@ const newTweetFormIsVisible = () => {
   return newTweetSection.clientHeight > 0;
 };
 
+//Validate new tweet, return false on success, or error message
+const validate = (textarea) => {
+  let result = false;
+  const text = textarea.val().trim();
+  if (!text) {
+    //No text or whitespace only
+    result = "Please enter some text.";
+  } else if (text.length > MAX_TWEET_LENGTH) {
+    //Too long!
+    result = `Your tweet is too long. No more than ${MAX_TWEET_LENGTH} characters, please.`;
+  }
+  return result;
+};
+
 $(document).ready(() => {
 
   //Click on compose button: slide the new tweet form up/down
