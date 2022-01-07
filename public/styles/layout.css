@@ -24,7 +24,7 @@ html {
   --grayout: #c2c2c2;      /* Grayed-out text */
   --orange: #dfab00;
   
-  --line-width: 4px;         /* Borders and shadows */
+  --line-width: 3px;         /* Borders and shadows */
 }
 
 body {

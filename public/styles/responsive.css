@@ -1,0 +1,100 @@
+
+/* Mobile */
+@media screen and (max-width:767px) {
+  :root {    
+    --line-width: 2px;         /* Borders and shadows */
+  }
+  
+  nav {
+    padding: 5px 25px;
+    height: 80px;
+  }
+  nav .brand {
+    font-size:60%;
+  }
+
+  nav .new-tweet-link {
+    font-size:60%;
+  }
+
+  nav .new-tweet-link {
+    font-size: 60%;
+  }
+
+  .new-tweet {
+    font-size:70%;
+  }
+
+  .hero {    
+    margin: 0px;
+    padding-top: 80px;
+    height: 180px;
+    width: 100%;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .hero .avatar {
+    width:100px;
+  }
+
+  .hero .name {
+    font-size: 1.3rem;
+    padding-bottom: 15px;
+  }
+
+  main {
+    margin: 20px;
+    flex-basis: 70%;
+  }
+
+  .tweet {
+    font-size:70%;
+  }
+
+  .tweet .user img {
+    width:30px;
+  }
+
+  .tweet div {
+    padding-top:2px;
+    padding-bottom: 2px;
+  }
+}
+
+
+/* Desktop */
+@media screen and (min-width:1024px) {
+
+  :root {    
+    --line-width: 4px;         /* Borders and shadows */
+  }
+
+  .container {
+    display:flex;
+    justify-content: space-around;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    margin-top: 100px;
+  }
+
+  .hero {    
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 0px;
+    width: auto;
+    flex-basis: 30%;
+    min-width: 250px;
+    max-width: 400px;
+    align-items: center;
+  }
+
+  main {
+    margin: 20px;
+    flex-basis: 70%;
+  }
+
+  nav {
+    background-color: #4056a1;
+  }
+}

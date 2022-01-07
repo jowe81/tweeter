@@ -54,7 +54,7 @@ const renderTweets = (tweets) => {
 //Empty tweets container
 const clearTweets = () => {
   $(TWEETS_CONTAINER_SELECTOR).html('');
-}
+};
 
 /* Load tweets via ajax and append them to the container */
 const loadTweets = () => {
@@ -79,7 +79,6 @@ const validate = (textarea) => {
 
 
 $(document).ready(function() {
-  
   //Populate the page with tweets
   loadTweets();
 });
